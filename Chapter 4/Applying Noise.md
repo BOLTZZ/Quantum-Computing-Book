@@ -19,7 +19,7 @@ qc.measure_all()
 qc.draw()
 
 # Executing the circuit without any noise and seeing the result
-execute( qc, Aer.get_backend('qasm_simulator'), shots=8192).result().get_counts()
+execute(qc, Aer.get_backend('qasm_simulator'), shots=8192).result().get_counts()
 
 # Creating the noise model
 noise_model = NoiseModel() 
@@ -29,5 +29,5 @@ error_cx = error_cx.tensor(error_cx)
 noise_model.add_all_qubit_quantum_error(error_cx, ["cx"])
 
 # Executing the circuit with noise and seeing the result
-execute( qc, Aer.get_backend('qasm_simulator'), noise_model=noise_model, shots=8192).result().get_counts()
+execute(qc, Aer.get_backend('qasm_simulator'), noise_model=noise_model, shots=8192).result().get_counts()
 ```
